@@ -1,0 +1,49 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class KeyListenerExample extends Frame implements KeyListener {
+
+	// use the label and text area
+	Label l;
+	TextArea area;
+
+	// constructor
+	KeyListenerExample() {
+
+		// initialize the components
+		l = new Label();
+
+		// setting the location and size
+		l.setBounds(20, 50, 100, 20);
+
+		// initializing area
+		area = new TextArea();
+		// setting the location and size
+		area.setBounds(20, 80, 300, 300);
+		area.addKeyListener(this);
+
+		add(l);
+		add(area);
+
+		setSize(400, 400);
+		setLayout(null);
+		setVisible(true);
+	}
+
+	public void keyPressed(KeyEvent e) {
+		l.setText("Key Pressed");
+	}
+
+	public void keyReleased(KeyEvent e) {
+		l.setText("Key Released");
+	}
+
+	public void keyTyped(KeyEvent e) {
+		l.setText("Key Typed");
+	}
+
+	// main method
+	public static void main(String[] args) {
+		new KeyListenerExample();
+	}
+}

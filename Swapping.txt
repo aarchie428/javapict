@@ -1,0 +1,53 @@
+
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class swapping extends Frame implements ActionListener {
+
+	TextField t1 = new TextField(20);
+	TextField t2 = new TextField(20);
+
+	Button b1 = new Button("Swap");
+	Button b2 = new Button("Exit");
+
+	public static void main(String[] args) {
+		swapping Aobj = new swapping();
+	}
+
+	swapping() {
+		setVisible(true);
+		setLayout(new FlowLayout(FlowLayout.CENTER, 100, 50));
+		setSize(400, 500);
+		setLocation(100, 100);
+		setBackground(Color.white);
+
+		add(t1);
+		add(t2);
+		b1.addActionListener(this);
+		add(b1);
+		b2.addActionListener(this);
+		add(b2);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String Text1 = t1.getText();
+		String Text2 = t2.getText();
+
+		t1.setText(Text2);
+		t2.setText(Text1);
+
+		Object exit = e.getSource();
+
+		if (exit == b2) {
+			dispose();
+		}
+
+	}
+}
